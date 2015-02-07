@@ -35,8 +35,9 @@ public class LoginServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {			
+		
+		/*
 		UserService userService = UserServiceFactory.getUserService();
 		User currentUser = userService.getCurrentUser();
 
@@ -44,7 +45,8 @@ public class LoginServlet extends HttpServlet {
 			response.sendRedirect("/todo");
 		} else {
 			response.sendRedirect(userService.createLoginURL("/todo"));
-		}
+		}*/
+		
 	}
 
 }
