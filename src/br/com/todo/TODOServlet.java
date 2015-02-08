@@ -1,20 +1,23 @@
 package br.com.todo;
 
+import static br.com.todo.service.OfyService.ofy;
+
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.appengine.api.users.User;
-import com.google.appengine.api.users.UserService;
-import com.google.appengine.api.users.UserServiceFactory;
+import br.com.todo.model.Todo;
 
 @SuppressWarnings("serial")
 public class TODOServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		List<Todo> todo = ofy().load().type(Todo.class).list();
 		
+		System.out.println(todo);
 	}
 	
 	/**
@@ -26,6 +29,7 @@ public class TODOServlet extends HttpServlet {
 		 * se não existir deve ser criado uma nova entrada para ser adicionada as listas
 		 */
 		
+		//request.setAttribute("", arg1);.
 	}
 	
 	
