@@ -1,5 +1,6 @@
 package br.com.todo.service;
 
+import br.com.todo.model.Profile;
 import br.com.todo.model.Todo;
 
 import com.googlecode.objectify.Objectify;
@@ -8,6 +9,7 @@ import com.googlecode.objectify.ObjectifyService;
 
 public class OfyService {
     static {
+    	factory().register(Profile.class);
         factory().register(Todo.class);
     }
 
