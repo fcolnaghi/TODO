@@ -1,8 +1,12 @@
 package br.com.todo.rest;
 
+import static br.com.todo.service.OfyService.ofy;
+
 import java.util.List;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
@@ -29,6 +33,27 @@ public class TodoResource {
 		}catch(Exception e){
 			throw new WebApplicationException(Response.status(Status.BAD_REQUEST).entity(e.getMessage()).type(MediaType.TEXT_PLAIN).build());
 		}
+	}
+	
+	@POST
+	@Path("create")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void create(Todo todo) {
+		
+		System.out.println("entrou no post" + todo);
+		
+		ofy().save().entity(todo).now();
+		
+		
+//		try{
+//			if(todo != null) {
+//				System.out.println(todo);
+//			}
+//		}catch(Exception e){
+//			throw new WebApplicationException(Response.status(Status.BAD_REQUEST).entity(e.getMessage()).type(MediaType.TEXT_PLAIN).build());
+//		}
 		
 	}
+	
+	
 }

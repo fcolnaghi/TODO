@@ -39,6 +39,10 @@ public class Todo {
 		this.profileKey = profileKey;
 	}
 	
+	public void setEmail(String email) {
+		profileKey = Key.create(Profile.class, email);
+	}
+	
 	public String getTitle() {
 		return title;
 	}
