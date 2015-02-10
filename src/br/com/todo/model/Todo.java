@@ -1,5 +1,7 @@
 package br.com.todo.model;
 
+import static br.com.todo.service.OfyService.ofy;
+
 import java.util.Date;
 
 import com.googlecode.objectify.Key;
@@ -7,7 +9,6 @@ import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
 import com.googlecode.objectify.annotation.Parent;
-
 @Entity
 public class Todo {
 	
@@ -29,10 +30,11 @@ public class Todo {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	public Key<Profile> getProfileKey() {
-		return profileKey;
+		
+	public Profile getProfile() {
+		return ofy().load().key(profileKey).now();
 	}
+	
 	public void setProfileKey(Key<Profile> profileKey) {
 		this.profileKey = profileKey;
 	}
